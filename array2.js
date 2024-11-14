@@ -3,61 +3,61 @@ const daftarKaryawan = [
         nama : "Devyn Ramirez",
         masaKerja : "10",
         nomorInduk : "10",
-        gaji : "7000000",
+        gaji : "Rp 7000.000",
     },
     {
         nama : "Harmony Duncan",
         masaKerja : "5",
         nomorInduk : "9",
-        gaji : "4000000",
+        gaji : "Rp 4000.000",
     },
     {
         nama : "Clarissa Burgess",
         masaKerja : "8",
         nomorInduk : "8",
-        gaji : "7000000",
+        gaji : "Rp 7000.000",
     },
     {
         nama : "Reilly Blanchard",
         masaKerja : "7",
         nomorInduk : "7",
-        gaji : "7000000",
+        gaji : "Rp 7000.000",
     },
     {
         nama : "Zion Brooks",
         masaKerja : "4",
         nomorInduk : "6",
-        gaji : "4000000",
+        gaji : "Rp 4000.000",
     },
     {
         nama : "Jovanny Mays",
         masaKerja : "10",
         nomorInduk : "5",
-        gaji : "7000000",
+        gaji : "Rp 7000.000",
     },
     {
         nama : "Cindy Chase",
         masaKerja : "9",
         nomorInduk : "4",
-        gaji : "7000000",
+        gaji : "Rp 7000.000",
     },
     {
         nama : "Kristin Mcdaniel",
         masaKerja : "8",
         nomorInduk : "3",
-        gaji : "7000000",
+        gaji : "Rp 7000.000",
     },
     {
         nama : "Macey Sanford",
         masaKerja : "7",
         nomorInduk : "2",
-        gaji : "7000000",
+        gaji : "Rp 7000.000",
     },
     {
         nama : "BagasAlfredo Faulkner",
         masaKerja : "10",
         nomorInduk : "1",
-        gaji : "7000000",
+        gaji : "Rp 7000.000",
     },
 ]
 let mode = "tambah"
@@ -74,10 +74,10 @@ const tampilkanKaryawan = () => {
     }
     }
     const tambahKaryawan = () => {
-        const nama = document.getElementById('txt-Nama').value
-        const masaKerja = document.getElementById('txt-masaKerja').value
-        const nomorInduk = document.getElementById('txt-nomorInduk').value
-        const gaji = document.getElementById('txt-Gaji').value
+        const nama = document.getElementById('txt-Nama').value;
+        const masaKerja = document.getElementById('txt-masaKerja').value;
+        const nomorInduk = document.getElementById('txt-nomorInduk').value;
+        const gaji = document.getElementById('txt-Gaji').value;
     
         const KaryawanBaru = {
             nama : nama,
@@ -89,15 +89,15 @@ const tampilkanKaryawan = () => {
         if (mode == "tambah") { 
             daftarKaryawan.push(KaryawanBaru)     
            }  else {
-           daftarKaryawan[mode] = "KaryawanBaru"
+           daftarKaryawan[mode] = KaryawanBaru
            }
        
            document.getElementById('txt-Nama').value = ""
-           document.getElementById('txt-masakerja').value = ""
+           document.getElementById('txt-masaKerja').value = ""
            document.getElementById('txt-nomorInduk').value = ""
            document.getElementById('txt-Gaji').value = ""
          
-           mode = 'tambah'
+          tampilkanKaryawan()
      }
      const cariKaryawan = (nama) => {
         for (let i = 0; i < daftarKaryawan.length; i++) {
@@ -109,7 +109,10 @@ const tampilkanKaryawan = () => {
 
      const hapusKaryawan = (target) =>  {
        const indexDihapus = cariKaryawan(target)
+       if (indexDihapus !== -1) {
         daftarKaryawan.splice(indexDihapus, 1)
+       }
+        tampilkanKaryawan();
      }
     
      const editKaryawan = (target) => {
